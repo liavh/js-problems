@@ -213,15 +213,34 @@ const sorting = {
         return newArr;
 
     },
-    insersion: arr => {
+
+    insertion: arr => {
         const originArr = arr;
         const newArr = [];
-        let i = 0;
+        console.log(originArr);
+        // 1. loop through original array
+        for (let i = 0; originArr.length - 1 >= 0; i++) {
 
-        for (let i = 0; i < originArr.length; i++) {
-            1.
+            let x = 0;
+            // 2. push current el to newArr
+            newArr.splice(0, 0, originArr[i]);
+
+            // 3. compare with next el in newArr
+            while (newArr[x] > newArr[x + 1] && newArr.length >= 1) {
+                // 4. if larger, swap current el with next 
+                [newArr[x], newArr[x + 1]] = [newArr[x + 1], newArr[x]];
+                x++;
+            }
+            // 5. remove el from originArr
+            originArr.splice(i, 1);
+
+            // 6. reset i value to start
+            i -= 1;
         }
-
-        
+        return newArr;
+    },
+    merge: arr => {
+        const originArr = arr;
+        const newArr = [];
     }
 };
