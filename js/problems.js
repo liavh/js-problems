@@ -191,83 +191,37 @@ const genList = limit => {
 
 const sorting = {
     selection: arr => {
-        const numArr = arr;
+        const originArr = arr;
         const newArr = [];
         let min, i;
 
-        while (numArr.length > 1) {
-            // 1. לעבור על הרשימה ולמצוא את האלמנט הנמוך ביותר
-            min = numArr.reduce((a, b) => Math.min(a, b));
-            i = numArr.indexOf(min);
+        // 1. לבדוק אם במערך המקורי יש יותר מאלמנט 1
+        while (originArr.length > 1) {
+            // 2. במידה ולא, לעבור על הרשימה ולמצוא את האלמנט הנמוך ביותר
+            min = originArr.reduce((a, b) => Math.min(a, b));
+            i = originArr.indexOf(min);
 
-            // 2. לדחוף את האלמנט לסוף רשימה חדשה
+            // 3. לדחוף את האלמנט לסוף רשימה חדשה
             newArr.push(min);
 
-            // 3. להסיר את האלמנט מהרשימה המקורית
-            numArr.splice(i, 1);
+            // 4. להסיר את האלמנט מהרשימה המקורית
+            originArr.splice(i, 1);
         }
-        newArr.push(numArr[0]);
+        // 2. במידה ולא, לדחוף את האלמנט למערך החדש
+        newArr.push(originArr[0]);
+
         return newArr;
 
-        // for (let i = 0; i < numArr.length; i++) {
-        //     // 1. לעבור על הרשימה ולמצוא את האלמנט הנמוך ביותר
-        //     min = numArr.reduce((a, b) => Math.min(a, b));
-        //     indx = numArr.indexOf(min);
+    },
+    insersion: arr => {
+        const originArr = arr;
+        const newArr = [];
+        let i = 0;
 
-        //     // 2. לדחוף את האלמנט לסוף רשימה חדשה
-        //     newArr.push(min);
-
-        //     // 3. להסיר את האלמנט מהרשימה המקורית
-        //     numArr.splice(indx, 1);
-        //     console.log(`original arr: ${numArr}\nnew arr: ${newArr}\ncounter: ${i}`);
-
-        //     //4. לבדוק אם במערך המקורי יש יותר מאלמנט אחד
-        //     if (numArr.length > 1) {
-        //         // 5. אם כן, לאפס את I
-        //         i = -1;
-        //     } else {
-        //         // 6. אם לא, לדחוף את האחרון למערך החדש ולהחזיר אותו
-        //         newArr.push(numArr[0]);
-        //         return newArr;
-        //     }
-
-        // }
-        // 6. להחזיר את הרשימה החדשה
-        // return newArr;
-
-    }
-};
-
-const func = arr => {
-    const numArr = arr;
-    const newArr = [];
-    let min, indx;
-
-
-    for (let i = 0; i < numArr.length; i++) {
-        // 1. לעבור על הרשימה ולמצוא את האלמנט הנמוך ביותר
-        min = numArr.reduce((a, b) => Math.min(a, b));
-        indx = numArr.indexOf(min);
-
-        // 2. לדחוף את האלמנט לסוף רשימה חדשה
-        newArr.push(min);
-
-        // 3. להסיר את האלמנט מהרשימה המקורית
-        numArr.splice(indx, 1);
-        console.log(`original arr: ${numArr}\nnew arr: ${newArr}\ncounter: ${i}`);
-
-        //4. לבדוק אם במערך המקורי יש יותר מאלמנט אחד
-        if (numArr.length > 1) {
-            // 5. אם כן, לאפס את I
-            i = -1;
-        } else {
-            // 6. אם לא, לדחוף את האחרון למערך החדש ולהחזיר אותו
-            newArr.push(numArr[0]);
-            return newArr;
+        for (let i = 0; i < originArr.length; i++) {
+            1.
         }
 
+        
     }
-    // 6. להחזיר את הרשימה החדשה
-    return newArr;
-
 };
